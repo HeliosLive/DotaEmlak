@@ -1,0 +1,183 @@
+﻿@model IEnumerable<EmlakProjesi.Models.Advert>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmlakTipi.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.il.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ilantipi.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ilce.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isitmatipi.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kacoda.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SatisTipi.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Detaylar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Boyut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Yas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KatSayisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BuluduguKat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BanyoSayisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BalkonSayisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EsyaDurumu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KullanimDurumu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aidat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SessionString)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmlakTipi.Ad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.il.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ilantipi.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ilce.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isitmatipi.Ad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kacoda.Ad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SatisTipi.Ad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Ad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Baslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Detaylar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fiyat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Boyut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Yas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KatSayisi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BuluduguKat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BanyoSayisi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BalkonSayisi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EsyaDurumu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KullanimDurumu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aidat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SessionString)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

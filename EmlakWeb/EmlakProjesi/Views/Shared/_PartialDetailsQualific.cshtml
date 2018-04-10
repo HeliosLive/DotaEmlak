@@ -1,0 +1,940 @@
+﻿<div class="section property-features">
+    <h4 class="s-property-title">Özellikler</h4>
+    @foreach (var item in ViewData["Qualification"] as List<EmlakProjesi.Models.Qualification>)
+    {
+        <div class="col-sm-12 padding-top-15"><label style="margin-left:30px">Cephe</label> </div> @*4*@
+        <div class="col-sm-12 padding-top-3 ozellikler">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.Side_North == true)
+                            { <input name="Side_North" type="checkbox" checked value="true" disabled> <a>Kuzey</a> }
+                            else
+                            {<input name="Side_North" type="checkbox" value="false" disabled> <a>Kuzey</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.Side_South == true)
+                            { <input name="Side_South" type="checkbox" checked value="true" disabled> <a>Güney</a> }
+                            else
+                            {<input name="Side_South" type="checkbox" value="false" disabled> <a>Güney</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.Side_East == true)
+                            { <input name="Side_East" type="checkbox" checked value="true" disabled> <a>Doğu</a> }
+                            else
+                            {<input name="Side_East" type="checkbox" value="false" disabled> <a>Doğu</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+
+                            @if (item.Side_West == true)
+                            { <input name="Side_West" type="checkbox" checked value="true" disabled> <a>Batı</a> }
+                            else
+                            {<input name="Side_West" type="checkbox" value="false" disabled> <a>Batı</a>}
+
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 padding-top-15"><label style="margin-left:30px">İç Özellikleri</label> </div>  @*25*@
+        <div class="col-sm-12 padding-top-3 ozellikler">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_TV == true)
+                            { <input name="RoomType_TV" type="checkbox" checked value="true" disabled> <a>TV</a> }
+                            else
+                            {<input name="RoomType_TV" type="checkbox" value="false" disabled> <a>TV</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_Tel == true)
+                            { <input name="RoomType_Tel" type="checkbox" checked value="true" disabled> <a>Ankesör Telefon</a> }
+                            else
+                            {<input name="RoomType_Tel" type="checkbox" value="false" disabled> <a>Ankesör Telefon</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_MoneyCase == true)
+                            { <input name="RoomType_MoneyCase" type="checkbox" checked value="true" disabled> <a>Para Kasası</a> }
+                            else
+                            {<input name="RoomType_MoneyCase" type="checkbox" value="false" disabled> <a>Para Kasası</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_Closet == true)
+                            { <input name="RoomType_Closet" type="checkbox" checked value="true" disabled> <a>Gömme Dolap</a> }
+                            else
+                            {<input name="RoomType_Closet" type="checkbox" value="false" disabled> <a>Gömme Dolap</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_WashingMachine == true)
+                            { <input name="RoomType_WashingMachine" type="checkbox" checked value="true" disabled> <a>Çamaşır Makinası</a> }
+                            else
+                            {<input name="RoomType_WashingMachine" type="checkbox" value="false" disabled> <a>Çamaşır Makinası</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_DishWasher == true)
+                            { <input name="RoomType_DishWasher" type="checkbox" checked value="true" disabled> <a>Bulaşık Makinası</a> }
+                            else
+                            {<input name="RoomType_DishWasher" type="checkbox" value="false" disabled> <a>Bulaşık Makinası</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_LaundryRoom == true)
+                            { <input name="RoomType_LaundryRoom" type="checkbox" checked value="true" disabled> <a>Çamaşır Odası</a> }
+                            else
+                            {<input name="RoomType_LaundryRoom" type="checkbox" value="false" disabled> <a>Çamaşır Odası</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_AirConditioner == true)
+                            { <input name="RoomType_AirConditioner" type="checkbox" checked value="true" disabled> <a>Klima</a> }
+                            else
+                            {<input name="RoomType_AirConditioner" type="checkbox" value="false" disabled> <a>Klima</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_Cellar == true)
+                            { <input name="RoomType_Cellar" type="checkbox" checked value="true" disabled> <a>Kiler</a> }
+                            else
+                            {<input name="RoomType_Cellar" type="checkbox" value="false" disabled> <a>Kiler</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_Balcony == true)
+                            { <input name="RoomType_Balcony" type="checkbox" checked value="true" disabled> <a>Balkon</a> }
+                            else
+                            {<input name="RoomType_Balcony" type="checkbox" value="false" disabled> <a>Balkon</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_Terrace == true)
+                            { <input name="RoomType_Terrace" type="checkbox" checked value="true" disabled> <a>Teras</a> }
+                            else
+                            {<input name="RoomType_Terrace" type="checkbox" value="false" disabled> <a>Teras</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_Barbeque == true)
+                            { <input name="RoomType_Barbeque" type="checkbox" checked value="true" disabled> <a>Barbekü</a> }
+                            else
+                            {<input name="RoomType_Barbeque" type="checkbox" value="false" disabled> <a>Barbekü</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_WhiteAppliances == true)
+                            { <input name="RoomType_WhiteAppliances" type="checkbox" checked value="true" disabled> <a>Beyaz Eşya</a> }
+                            else
+                            {<input name="RoomType_WhiteAppliances" type="checkbox" value="false" disabled> <a>Beyaz Eşya</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_Refrigerator == true)
+                            { <input name="RoomType_Refrigerator" type="checkbox" checked value="true" disabled> <a>Buzdolabı</a> }
+                            else
+                            {<input name="RoomType_Refrigerator" type="checkbox" value="false" disabled> <a>Buzdolabı</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_ParentBath == true)
+                            { <input name="RoomType_ParentBath" type="checkbox" checked value="true" disabled> <a>Ebeveyn Banyosu</a> }
+                            else
+                            {<input name="RoomType_ParentBath" type="checkbox" value="false" disabled> <a>Ebeveyn Banyosu</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_Kartonpiyer == true)
+                            { <input name="RoomType_Kartonpiyer" type="checkbox" checked value="true" disabled> <a>Kartonpiyer</a> }
+                            else
+                            {<input name="RoomType_Kartonpiyer" type="checkbox" value="false" disabled> <a>Kartonpiyer</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_Ankastre == true)
+                            { <input name="RoomType_Ankastre" type="checkbox" checked value="true" disabled> <a>Ankastre</a> }
+                            else
+                            {<input name="RoomType_Ankastre" type="checkbox" value="false" disabled> <a>Ankastre</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_Laminant == true)
+                            { <input name="RoomType_Laminant" type="checkbox" checked value="true" disabled> <a>Laminant Zemin</a> }
+                            else
+                            {<input name="RoomType_Laminant" type="checkbox" value="false" disabled> <a>Laminant Zemin</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_Panjur == true)
+                            { <input name="RoomType_Panjur" type="checkbox" checked value="true" disabled> <a>Panjur</a> }
+                            else
+                            {<input name="RoomType_Panjur" type="checkbox" value="false" disabled> <a>Panjur</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_Furniture == true)
+                            { <input name="RoomType_Furniture" type="checkbox" checked value="true" disabled> <a>Mobilya</a> }
+                            else
+                            {<input name="RoomType_Furniture" type="checkbox" value="false" disabled> <a>Mobilya</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_SteelDoor == true)
+                            { <input name="RoomType_SteelDoor" type="checkbox" checked value="true" disabled> <a>Çelik Kapı</a> }
+                            else
+                            {<input name="RoomType_SteelDoor" type="checkbox" value="false" disabled> <a>Çelik Kapı</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_Thermopane == true)
+                            { <input name="RoomType_Thermopane" type="checkbox" checked value="true" disabled> <a>Isıcam</a> }
+                            else
+                            {<input name="RoomType_Thermopane" type="checkbox" value="false" disabled> <a>Isıcam</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_SeramikGround == true)
+                            { <input name="RoomType_SeramikGround" type="checkbox" checked value="true" disabled> <a>Seramik Zemin</a> }
+                            else
+                            {<input name="RoomType_SeramikGround" type="checkbox" value="false" disabled> <a>Seramik Zemin</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_ParkeGround == true)
+                            { <input name="RoomType_ParkeGround" type="checkbox" checked value="true" disabled> <a>Parke Zemin</a> }
+                            else
+                            {<input name="RoomType_ParkeGround" type="checkbox" value="false" disabled> <a>Parke Zemin</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @if (item.RoomType_FirePlace == true)
+                            { <input name="RoomType_FirePlace" type="checkbox" checked value="true" disabled> <a>Şömine</a> }
+                            else
+                            {<input name="RoomType_FirePlace" type="checkbox" value="false" disabled> <a>Şömine</a>}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                                    <div class="col-sm-12 padding-top-15"><label style="margin-left:30px">Banyo Özellikleri</label> </div>   @*5*@
+                                    <div class="col-sm-12 padding-top-3 ozellikler">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        @if (item.BathroomType_Alafranga == true)
+                                                        { <input name="BathroomType_Alafranga" type="checkbox" checked value="true" disabled> <a>Alafranga Tuvalet</a> }
+                                                        else
+                                                        {<input name="BathroomType_Alafranga" type="checkbox" value="false" disabled> <a>Alafranga Tuvalet</a>}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        @if (item.BathroomType_Cabin == true)
+                                                        { <input name="BathroomType_Cabin" type="checkbox" checked value="true" disabled> <a>Duşakabin</a> }
+                                                        else
+                                                        {<input name="BathroomType_Cabin" type="checkbox" value="false" disabled> <a>Duşakabin</a>}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        @if (item.BathroomType_Jacuzzi == true)
+                                                        { <input name="BathroomType_Jacuzzi" type="checkbox" checked value="true" disabled> <a>Jakuzi</a> }
+                                                        else
+                                                        {<input name="BathroomType_Jacuzzi" type="checkbox" value="false" disabled> <a>Jakuzi</a>}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        @if (item.BathroomType_Tub == true)
+                                                        { <input name="BathroomType_Tub" type="checkbox" checked value="true" disabled> <a>Küvet</a> }
+                                                        else
+                                                        {<input name="BathroomType_Tub" type="checkbox" value="false" disabled> <a>Küvet</a>}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        @if (item.BathroomType_Alaturka == true)
+                                                        { <input name="BathroomType_Alaturka" type="checkbox" checked value="true" disabled> <a>Alaturka Tuvalet</a> }
+                                                        else
+                                                        {<input name="BathroomType_Alaturka" type="checkbox" value="false" disabled> <a>Alaturka Tuvalet</a>}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 padding-top-15"><label style="margin-left:30px">Manzara</label> </div>   @*6*@
+                                    <div class="col-sm-12 padding-top-3 ozellikler">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        @if (item.ViewType_Historical == true)
+                                                        { <input name="ViewType_Historical" type="checkbox" checked value="true" disabled> <a>Tarihi</a> }
+                                                        else
+                                                        {<input name="ViewType_Historical" type="checkbox" value="false" disabled> <a>Tarihi</a>}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        @if (item.ViewType_City == true)
+                                                        { <input name="ViewType_City" type="checkbox" checked value="true" disabled> <a>Şehir</a> }
+                                                        else
+                                                        {<input name="ViewType_City" type="checkbox" value="false" disabled> <a>Şehir</a>}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        @if (item.ViewType_Forest == true)
+                                                        { <input name="ViewType_Forest" type="checkbox" checked value="true" disabled> <a>Orman</a> }
+                                                        else
+                                                        {<input name="ViewType_Forest" type="checkbox" value="false" disabled> <a>Orman</a>}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        @if (item.ViewType_Bosphorus == true)
+                                                        { <input name="ViewType_Bosphorus" type="checkbox" checked value="true" disabled> <a>Boğaz</a> }
+                                                        else
+                                                        {<input name="ViewType_Bosphorus" type="checkbox" value="false" disabled> <a>Boğaz</a>}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        @if (item.ViewType_Sea == true)
+                                                        { <input name="ViewType_Sea" type="checkbox" checked value="true" disabled> <a>Deniz</a> }
+                                                        else
+                                                        {<input name="ViewType_Sea" type="checkbox" value="false" disabled> <a>Deniz</a>}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        @if (item.ViewType_Mountain == true)
+                                                        { <input name="ViewType_Mountain" type="checkbox" checked value="true" disabled> <a>Dağ</a> }
+                                                        else
+                                                        {<input name="ViewType_Mountain" type="checkbox" value="false" disabled> <a>Dağ</a>}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 padding-top-15"><label style="margin-left:30px">Hat özellikleri</label> </div>   @*4*@
+                                    <div class="col-sm-12 padding-top-3 ozellikler">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        @if (item.GroundType_CableTV == true)
+                                                        { <input name="GroundType_CableTV" type="checkbox" checked value="true" disabled> <a>Kablo Tv</a> }
+                                                        else
+                                                        {<input name="GroundType_CableTV" type="checkbox" value="false" disabled> <a>Kablo Tv</a>}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        @if (item.GroundType_Wifi == true)
+                                                        { <input name="GroundType_Wifi" type="checkbox" checked value="true" disabled> <a>Wi-Fi</a> }
+                                                        else
+                                                        {<input name="GroundType_Wifi" type="checkbox" value="false" disabled> <a>Wi-Fi</a>}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        @if (item.GroundType_Fiber == true)
+                                                        { <input name="GroundType_Fiber" type="checkbox" checked value="true" disabled> <a>Fiber</a> }
+                                                        else
+                                                        {<input name="GroundType_Fiber" type="checkbox" value="false" disabled> <a>Fiber</a>}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        @if (item.GroundType_ADSL == true)
+                                                        { <input name="GroundType_ADSL" type="checkbox" checked value="true" disabled> <a>ADSL</a> }
+                                                        else
+                                                        {<input name="GroundType_ADSL" type="checkbox" value="false" disabled> <a>ADSL</a>}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                        <div class="col-sm-12 padding-top-15"><label style="margin-left:30px">Çevre</label> </div>   @*11*@
+                                        <div class="col-sm-12 padding-top-3 ozellikler">
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Environment_Park == true)
+                                                            { <input name="Environment_Park" type="checkbox" checked value="true" disabled> <a>Otopark</a> }
+                                                            else
+                                                            {<input name="Environment_Park" type="checkbox" value="false" disabled> <a>Otopark</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Environment_Police == true)
+                                                            { <input name="Environment_Police" type="checkbox" checked value="true" disabled> <a>Karakol</a> }
+                                                            else
+                                                            {<input name="Environment_Police" type="checkbox" value="false" disabled> <a>Karakol</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Environment_FunLand == true)
+                                                            { <input name="Environment_FunLand" type="checkbox" checked value="true" disabled> <a>Eğlence Merkezi</a> }
+                                                            else
+                                                            {<input name="Environment_FunLand" type="checkbox" value="false" disabled> <a>Eğlence Merkezi</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Environment_Market == true)
+                                                            { <input name="Environment_Market" type="checkbox" checked value="true" disabled> <a>Market</a> }
+                                                            else
+                                                            {<input name="Environment_Market" type="checkbox" value="false" disabled> <a>Market</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Environment_Municipality == true)
+                                                            { <input name="Environment_Municipality" type="checkbox" checked value="true" disabled> <a>Belediye</a> }
+                                                            else
+                                                            {<input name="Environment_Municipality" type="checkbox" value="false" disabled> <a>Belediye</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Environment_Avm == true)
+                                                            { <input name="Environment_Avm" type="checkbox" checked value="true" disabled> <a>Avm</a> }
+                                                            else
+                                                            {<input name="Environment_Avm" type="checkbox" value="false" disabled> <a>Avm</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Environment_Mosque == true)
+                                                            { <input name="Environment_Mosque" type="checkbox" checked value="true" disabled> <a>Camii</a> }
+                                                            else
+                                                            {<input name="Environment_Mosque" type="checkbox" value="false" disabled> <a>Camii</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Environment_Hospital == true)
+                                                            { <input name="Environment_Hospital" type="checkbox" checked value="true" disabled> <a>Hastane</a> }
+                                                            else
+                                                            {<input name="Environment_Hospital" type="checkbox" value="false" disabled> <a>Hastane</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Environment_University == true)
+                                                            { <input name="Environment_University" type="checkbox" checked value="true" disabled> <a>Üniversite</a> }
+                                                            else
+                                                            {<input name="Environment_University" type="checkbox" value="false" disabled> <a>Üniversite</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Environment_MidSchool == true)
+                                                            { <input name="Environment_MidSchool" type="checkbox" checked value="true" disabled> <a>OrtaOkul</a> }
+                                                            else
+                                                            {<input name="Environment_MidSchool" type="checkbox" value="false" disabled> <a>OrtaOkul</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Environment_PreSchool == true)
+                                                            { <input name="Environment_PreSchool" type="checkbox" checked value="true" disabled> <a>İlkokul</a> }
+                                                            else
+                                                            {<input name="Environment_PreSchool" type="checkbox" value="false" disabled> <a>İlkokul</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12 padding-top-15"><label style="margin-left:30px">Ulaşım</label> </div>   @*10*@
+                                        <div class="col-sm-12 padding-top-3 ozellikler">
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Transport_Airport == true)
+                                                            { <input name="Transport_Airport" type="checkbox" checked value="true" disabled> <a>Hava Alanı</a> }
+                                                            else
+                                                            {<input name="Transport_Airport" type="checkbox" value="false" disabled> <a>Hava Alanı</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Transport_Pier == true)
+                                                            { <input name="Transport_Pier" type="checkbox" checked value="true" disabled> <a>İskele</a> }
+                                                            else
+                                                            {<input name="Transport_Pier" type="checkbox" value="false" disabled> <a>İskele</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Transport_Tramvay == true)
+                                                            { <input name="Transport_Tramvay" type="checkbox" checked value="true" disabled> <a>Tramvay</a> }
+                                                            else
+                                                            {<input name="Transport_Tramvay" type="checkbox" value="false" disabled> <a>Tramvay</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Transport_Teleferik == true)
+                                                            { <input name="Transport_Teleferik" type="checkbox" checked value="true" disabled> <a>Teleferik</a> }
+                                                            else
+                                                            {<input name="Transport_Teleferik" type="checkbox" value="false" disabled> <a>Teleferik</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Transport_Metrobus == true)
+                                                            { <input name="Transport_Metrobus" type="checkbox" checked value="true" disabled> <a>Metrobüs</a> }
+                                                            else
+                                                            {<input name="Transport_Metrobus" type="checkbox" value="false" disabled> <a>Metrobüs</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Transport_E5 == true)
+                                                            { <input name="Transport_E5" type="checkbox" checked value="true" disabled> <a>E5 Otoyol</a> }
+                                                            else
+                                                            {<input name="Transport_E5" type="checkbox" value="false" disabled> <a>E5 Otoyol</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Transport_Tem == true)
+                                                            { <input name="Transport_Tem" type="checkbox" checked value="true" disabled> <a>Tem Otoyol</a> }
+                                                            else
+                                                            {<input name="Transport_Tem" type="checkbox" value="false" disabled> <a>Tem Otoyol</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Transport_Subway == true)
+                                                            { <input name="Transport_Subway" type="checkbox" checked value="true" disabled> <a>Metro</a> }
+                                                            else
+                                                            {<input name="Transport_Subway" type="checkbox" value="false" disabled> <a>Metro</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Transport_Bus == true)
+                                                            { <input name="Transport_Bus" type="checkbox" checked value="true" disabled> <a>Otobüs</a> }
+                                                            else
+                                                            {<input name="Transport_Bus" type="checkbox" value="false" disabled> <a>Otobüs</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.Transport_Minibus == true)
+                                                            { <input name="Transport_Minibus" type="checkbox" checked value="true" disabled> <a>Minibüs</a> }
+                                                            else
+                                                            {<input name="Transport_Minibus" type="checkbox" value="false" disabled> <a>Minibüs</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12 padding-top-15"><label style="margin-left:30px">Ev Tipi</label> </div>    @*10*@
+                                        <div class="col-sm-12 padding-top-3 ozellikler">
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.HousingType_Mustakil == true)
+                                                            { <input name="HousingType_Mustakil" type="checkbox" checked value="true" disabled> <a>Müstakil</a> }
+                                                            else
+                                                            {<input name="HousingType_Mustakil" type="checkbox" value="false" disabled> <a>Müstakil</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.HousingType_Catidublex == true)
+                                                            { <input name="HousingType_Catidublex" type="checkbox" checked value="true" disabled> <a>Çatı Dublex</a> }
+                                                            else
+                                                            {<input name="HousingType_Catidublex" type="checkbox" value="false" disabled> <a>Çatı Dublex</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.HousingType_Bahcedublex == true)
+                                                            { <input name="HousingType_Bahcedublex" type="checkbox" checked value="true" disabled> <a>Bahçe Dublex</a> }
+                                                            else
+                                                            {<input name="HousingType_Bahcedublex" type="checkbox" value="false" disabled> <a>Bahçe Dublex</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.HousingType_Triplex == true)
+                                                            { <input name="HousingType_Triplex" type="checkbox" checked value="true" disabled> <a>Triplex</a> }
+                                                            else
+                                                            {<input name="HousingType_Triplex" type="checkbox" value="false" disabled> <a>Triplex</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.HousingType_Enustkat == true)
+                                                            { <input name="HousingType_Enustkat" type="checkbox" checked value="true" disabled> <a>En Üst Kat</a> }
+                                                            else
+                                                            {<input name="HousingType_Enustkat" type="checkbox" value="false" disabled> <a>En Üst Kat</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.HousingType_Arakatdublex == true)
+                                                            { <input name="HousingType_Arakatdublex" type="checkbox" checked value="true" disabled> <a>Ara Dublex</a> }
+                                                            else
+                                                            {<input name="HousingType_Arakatdublex" type="checkbox" value="false" disabled> <a>Ara Dublex</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.HousingType_TersDublex == true)
+                                                            { <input name="HousingType_TersDublex" type="checkbox" checked value="true" disabled> <a>Ters Dublex</a> }
+                                                            else
+                                                            {<input name="HousingType_TersDublex" type="checkbox" value="false" disabled> <a>Ters Dublex</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.HousingType_Bahcekati == true)
+                                                            { <input name="HousingType_Bahcekati" type="checkbox" checked value="true" disabled> <a>Bahçe Katı</a> }
+                                                            else
+                                                            {<input name="HousingType_Bahcekati" type="checkbox" value="false" disabled> <a>Bahçe Katı</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.HousingType_Bahceli == true)
+                                                            { <input name="HousingType_Bahceli" type="checkbox" checked value="true" disabled> <a>Site Bahçesi</a> }
+                                                            else
+                                                            {<input name="HousingType_Bahceli" type="checkbox" value="false" disabled> <a>Site Bahçesi</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            @if (item.HousingType_Arakat == true)
+                                                            { <input name="HousingType_Arakat" type="checkbox" checked value="true" disabled> <a>Arakat</a> }
+                                                            else
+                                                            {<input name="HousingType_Arakat" type="checkbox" value="false" disabled> <a>Arakat</a>}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+    }
+</div>

@@ -1,0 +1,314 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    @*<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />*@
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    <title>Dota Admin | Giriş</title>
+
+    <link href="~/AdminContent/resources/css/invalid.css" rel="stylesheet" />
+    <link href="~/AdminContent/resources/css/reset.css" rel="stylesheet" />
+    <link href="~/AdminContent/resources/css/style.css" rel="stylesheet" /> 
+    <link rel="icon" href="~/AnasayfaContent/assets/img/homeicon.ico" type="image/x-icon" />
+    <script src="~/AdminContent/resources/scripts/simpla.jquery.configuration.js"></script>
+    <script src="~/AdminContent/resources/scripts/jquery.wysiwyg.js"></script>
+    <script src="~/AdminContent/resources/scripts/jquery-1.3.2.min.js"></script>
+    <script src="~/AdminContent/resources/scripts/facebox.js"></script>
+
+</head>
+
+<body id="login">
+    <div id="loginpage" class="active">
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { login = "giris" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div id="login-wrapper" class="png_bg">
+                <div id="login-top">
+
+                    <h1>Dota Admin</h1>
+                    <!-- Logo (221px width) -->
+                    <img id="logo" src="~/AnasayfaContent/assets/img/dota_emlak_admin.png" alt="Simpla Admin logo" />
+                </div> <!-- End #logn-top -->
+
+                <div id="login-content">
+
+                    @if (ViewBag.LoginInfo != null)
+                    {
+                        <div class="notification information png_bg LoginInfo">
+                            <div>
+                              @ViewBag.LoginInfo     
+                            </div>
+                        </div>
+                    }
+
+                    <p>
+                        <label>E-Mail</label>
+                        <input class="text-input" type="text" name="EMail" onkeypress='return event.charCode != 32' />
+                    </p>
+                    <div class="clear"></div>
+                    <p>
+                        <label>Şifre</label>
+                        <input class="text-input" type="password" name="Password" onkeypress='return event.charCode != 32'/>
+                    </p>
+                    <div class="clear"></div>
+                    @*<p id="remember-password">
+                            <input type="checkbox" />Remember me
+                        </p>*@
+                    <div class="clear"></div>
+                    <p style="float:left">
+                        <input class="button" style="width:88px" onclick="location.href='@Url.Action("Index", "Home")'" value="Siteye Geri Dön" />
+                    </p>
+                    <p>
+                        <input class="button" type="submit" value="Giriş" />
+                    </p>
+                    <div class="clear"></div>
+                    <p>
+                        <input class="button" style="float:right;width:45px" id="goregister" value="Kayıt Ol" />
+
+                        <input class="button" style="float:right;width:97px" id="goforgot" value="Şifremi Unuttum?" />
+                    </p>
+                    @*</form>*@
+                </div> <!-- End #login-content -->
+
+            </div> <!-- End #login-wrapper -->
+        }
+    </div>
+    <div id="registerpage" style="display:none" class="">
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div id="login-wrapper" class="png_bg">
+                <div id="login-top">
+
+                    <h1>Dota Admin</h1>
+                    <!-- Logo (221px width) -->
+                    <img id="logo" src="~/AnasayfaContent/assets/img/dota_emlak_admin.png" alt="Simpla Admin logo" />
+                </div> <!-- End #logn-top -->
+
+                <div id="login-content">
+
+                    @if (ViewBag.LoginInfo != null)
+                    {
+                        <div class="notification information png_bg LoginInfo">
+                            <div>
+                                @ViewBag.LoginInfo
+                            </div>
+                        </div>
+                    }
+               
+                    <p>
+                        <label>Ad</label>
+                        <input class="text-input onlytxt" type="text" id="adregister" name="Ad" style="text-transform: lowercase;"  />
+                    </p>
+                    <div class="clear"></div>
+                    <p>
+                        <label>Soyad</label>
+                        <input class="text-input onlytxt" type="text" id="soyadregister" name="Soyad" style="text-transform: lowercase;"   />
+                    </p>
+                    <div class="clear"></div>
+                    <p>
+                        <label>E-Mail</label>
+                        <input class="text-input" type="text" id="EMail" name="EMail"   onkeypress='return event.charCode != 32' />
+                    </p>
+                    <div class="clear"></div>
+                    <p>
+                        <label>Tel No</label>
+                        <input class="text-input telno" type="tel" id="telregister" name="TelNo" minlength=9 maxlength="10" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                    </p>
+                    <div class="clear"></div>
+                    <p>
+                        <label>Şifre</label>
+                        <input class="text-input" type="password" id="Password" name="Password" minlength=6 maxlength="15" onkeypress='return event.charCode != 32' />
+                    </p>
+                    <div class="clear"></div>
+                    <p>
+                        <label>Şifre Tekrar</label>
+                        <input class="text-input" type="password" id="RePassword" name="RePassword" minlength=6 maxlength="15"  onkeypress='return event.charCode != 32'/>
+                    </p>
+                    <div class="clear"></div>
+                    <p>
+                        <label>Admin misin?</label>
+                        <input class="text-input" type="password" name="isadmin" onkeypress='return event.charCode != 32' />
+                    </p>
+                    <div class="clear"></div> 
+                        @*<p id="remember-password">
+                            <input type="checkbox" />Remember me
+                        </p>*@
+                    <div class="clear"></div>
+                    <p style="float:left">
+                        <input class="button" id="gologin" style="width:48px" value="Geri Dön" />
+                    </p>
+                    <p>
+                        <input class="button" onclick="NewMember()" id="kayıtol" style="" type="submit" value="Kaydol"/> 
+                    </p>
+
+
+                    @*</form>*@
+                </div> <!-- End #login-content -->
+
+            </div> <!-- End #login-wrapper -->
+                    }
+    </div>
+    <div id="forgotpage" style="display:none" class="">
+        @using (Html.BeginForm("Login", "Account", new { forgot = "on" }, FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div id="login-wrapper" class="png_bg">
+                <div id="login-top">
+
+                    <h1>Dota Admin</h1>
+                    <!-- Logo (221px width) -->
+                    <img id="logo" src="~/AnasayfaContent/assets/img/dota_emlak_admin.png" alt="Simpla Admin logo" />
+                </div> <!-- End #logn-top -->
+
+                <div id="login-content">
+
+                    @if (ViewBag.LoginInfo != null)
+                    {
+                        <div class="notification information png_bg LoginInfo">
+                            <div>
+                                @ViewBag.LoginInfo
+                            </div>
+                        </div>
+                    }
+
+                    <p>
+                        <label>E-Mail</label>
+                        <input class="text-input" type="text" id="ForgotEmail" name="EMail" onkeypress='return event.charCode != 32' />
+                    </p>
+                    <div class="clear"></div>
+
+                    <div class="clear"></div>
+                    <p style="float:left">
+                        <input class="button" id="gologin1" style="width:48px" value="Geri Dön" />
+                    </p>
+                    <p>
+                        <input class="button" onclick="ForgotPassword()" type="submit" value="Gönder" />
+                    </p>
+
+
+                    @*</form>*@
+                </div> <!-- End #login-content -->
+
+            </div> <!-- End #login-wrapper -->
+        }
+    </div>
+
+</body>
+
+</html>
+@*<script>     hangi tuşun charcode u nun ne olduğunu alert eder.
+    $(document).keypress(function (event) {
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        alert(keycode);
+        if (keycode == '13') {
+            alert('You pressed a "enter" key in somewhere');
+        }
+    }); 
+</script>*@
+<script type="text/javascript">
+ 
+    $(function () {
+        $('.onlytxt').keydown(function (e) {
+            if (e.shiftKey || e.ctrlKey || e.altKey) {
+                e.preventDefault();
+            } else {
+                var key = e.keyCode;
+                if (!((key == 8) || (key == 219) || (key == 221) || (key == 186) || (key == 191) || (key == 220) || (key == 222) || (key == 9)
+                  || (key == 16) || (key == 37) || (key == 39) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+                    e.preventDefault();
+                }
+            }
+        });
+    });
+</script> 
+
+@*<script>
+        var NewMember = function () {
+            $.ajax({
+                type: "Post",
+                url: "/Account/SendMailToUser",
+                data: { EmailToWho: $("#EMail").val(), main: "on" },
+                success: function (data) {
+                    if (data == true) {
+                        alert("Email gönderimi başarılı");
+                    }
+                }
+            })
+        }
+</script>*@
+<script>
+    var ForgotPassword = function () { 
+            $.ajax({
+                type: "Post",
+                url: "/Account/SendMailToUser",
+                data: { EmailToWho: $("#ForgotEmail").val(), main: "off" },
+                success: function (result) {
+                    if (result == true) {
+                        alert("Email gönderimi başarılı");
+                    }
+                    else {
+                        alert("Email gönderimi BAŞARISIZ!");
+                    }
+                }
+            })  
+        }
+</script>
+
+
+<script>
+     
+    $(".telno").change( function () {
+        if ($(this).val().length != 10) {
+            alert('Telefon Numarasını başında 0 olmayacak şekilde 10 haneli giriniz');
+        }
+    });
+
+    $("#RePassword").change(function () {
+        if ($(this).val() != $('#Password').val()) {
+            alert('Şifreler Uyuşmuyor!');
+        }
+    });
+
+
+    $('#goregister').click(function () {
+        $('#loginpage').hide();
+        $('#registerpage').show();
+    });
+
+    $('#gologin').click(function () {
+        $('#forgotpage').hide();
+        $('#registerpage').hide();
+        $('#loginpage').show();
+    });
+
+    $('#gologin1').click(function () {
+        $('#forgotpage').hide();
+        $('#registerpage').hide();
+        $('#loginpage').show();
+    });
+
+    $('#goforgot').click(function () {
+        $('#forgotpage').show();
+        $('#registerpage').hide();
+        $('#loginpage').hide();
+    });
+
+    $('.LoginInfo').click(function(){
+        $(this).toggle("slow");
+    });
+</script> 

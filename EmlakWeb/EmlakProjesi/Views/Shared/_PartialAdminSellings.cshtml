@@ -1,0 +1,88 @@
+﻿
+@using PagedList;
+@using PagedList.Mvc;
+
+<div class="content-box-content">
+    <div class="tab-content default-tab" id="tab1">
+        <!-- This is the target div. id must match the href of this div's tab -->
+        <div class="notification attention png_bg">
+            <a href="#" class="close">
+                <img src="~/AdminContent/resources/images/icons/cross_grey_small.png" title="Close this notification"
+                     alt="close" />
+            </a>
+            <div>
+                Buradan yeni Satış tipleri ekleyebilir ya da öncekileri güncelleyebilirsiniz.
+            </div>
+        </div>
+        <div>
+            <input class="text-input small-input" type="text" id="satisinput" name="satisinput" />
+            <input class="button" type="submit" id="satisekle" value="Ekle" />
+        </div>
+        <table>
+            <thead class="col-md-12">
+                <tr>
+                    <th class="col-md-1">
+                        <input class="check-all" type="checkbox" />
+                    </th>
+                    <th class="col-md-2">
+                        Satış Tipi
+                    </th>
+                    <th class="col-md-2">
+                        Oluşturulma Tarihi
+                    </th>
+                    <th class="col-md-1">
+                        Aktif mi?
+                    </th>
+                    <th class="col-md-2">
+                        İşlemler
+                    </th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="6">
+                        <div class="col-md-12">
+                            <div class="pagination" style="float:none;padding-left:50px">
+                                @Html.PagedListPager(ViewData["satislar"] as IPagedList<EmlakProjesi.Models.SellingType>, page => Url.Action("Index", new
+                           {
+                               page,
+                               sınıf = "satis"
+                           }),
+                           new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded }
+                           )
+                            </div>
+                        </div>
+                        <!-- End .pagination -->
+                        <div class="clear">
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (var item in ViewData["satislar"] as IPagedList<EmlakProjesi.Models.SellingType>)
+                {
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            @item.Ad
+                        </td>
+                        <td>
+                            @item.CreateTime
+                        </td>
+                        <td>
+                            @item.Active
+                        </td>
+                        <td>
+                            <button onclick="location.href='@Url.Action("SellingDelete", "Admin", new {id=item.ID})'" title="Sil">
+                                <img src="~/AdminContent/resources/images/icons/cross.png" alt="Delete" />
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- End #tab1 -->
+</div>

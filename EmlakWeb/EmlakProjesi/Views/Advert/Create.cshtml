@@ -1,0 +1,989 @@
+﻿@model EmlakProjesi.Models.Advert
+
+@{
+    ViewBag.Title = "Create";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+    @*<meta http-equiv="X-UA-Compatible" content="IE=edge">*@
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>Kolay Emlak | Özellikler Sayfası</title>
+    <meta name="description" content="GARO is a real-estate template">
+    <meta name="author" content="Kimarotec">
+    <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    @*<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">*@
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/normalize.css">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/fontello.css">
+    <link href="~/AnasayfaContent/assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
+    <link href="~/AnasayfaContent/assets/fonts/icon-7-stroke/css/helper.css" rel="stylesheet">
+    <link href="~/AnasayfaContent/assets/css/animate.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="~/AnasayfaContent/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/icheck.min_all.css">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/price-range.css">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/owl.theme.css">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/owl.transitions.css">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/style.css">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/responsive.css">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/wizard.css" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <link href="~/Content/icamoon.css" rel="stylesheet" />
+
+    <style>
+        .form-control::-webkit-input-placeholder {
+            color: darkgray;
+        }
+
+        .form::-webkit-input-placeholder {
+            color: darkgray;
+        }
+        /* Google Chrome, Opera */
+        .form:-ms-input-placeholder {
+            color: darkgray;
+        }
+        /* Internet Explorer */
+        .form::-moz-placeholder {
+            color: darkgray;
+        }
+        /* Mozilla Firefox 19+ */
+        .form:-moz-placeholder {
+            color: darkgray;
+        }
+        /* Mozilla Firefox 18- */
+
+        .soloimage .file-drop-zone {
+            border: 1px dashed #aaa;
+            border-radius: 4px;
+            height: 100%;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0px -3px -8px -2px;
+            padding: 0px;
+        }
+
+        .soloimage .file-caption {
+            padding-right: 0px;
+            padding-left: 7px;
+            margin-left: -3px;
+        }
+    </style>
+
+    <link href="~/AdverImageInputContent/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="~/AdverImageInputContent/themes/explorer-fa/theme.css" media="all" rel="stylesheet" type="text/css" />
+
+
+    <script src="~/scripts/fileinput.min.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" type="text/javascript"></script>*@
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="~/scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/AdverImageInputContent/js/plugins/sortable.js" type="text/javascript"></script>
+    <script src="~/AdverImageInputContent/js/fileinput.js" type="text/javascript"></script>
+    <script src="~/AdverImageInputContent/js/locales/fr.js" type="text/javascript"></script>
+    <script src="~/AdverImageInputContent/js/locales/es.js" type="text/javascript"></script>
+    <script src="~/AdverImageInputContent/themes/explorer-fa/theme.js" type="text/javascript"></script>
+    <script src="~/AdverImageInputContent/themes/fa/theme.js" type="text/javascript"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" type="text/javascript"></script>*@
+    <script src="https://cdn.ckeditor.com/4.8.0/full/ckeditor.js"></script>
+
+</head>
+<body>
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <!-- Body content -->
+    <div id="PartialHeader" style="display:block">
+        @{
+            Html.RenderPartial("~/Views/Shared/_PartialHeader.cshtml");
+        }
+    </div>
+
+    <!-- End of nav bar -->
+    <div class="page-head">
+        <div class="container">
+            <div class="row">
+                <div class="page-head-content">
+                    @*<h1 class="page-title">Submit new property</h1>*@
+                    <h2 class="page-title"> <b>ÜCRETSİZ </b>İLAN VER !</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End page header -->
+    <!-- property area -->
+    <div class="content-area submit-property" style="background-color: #FCFCFC;">
+        &nbsp;
+        <div class="container">
+            <div class="clearfix">
+                <div class="wizard-container">
+                    <div class="wizard-card ct-wizard-orange" id="wizardProperty">
+                        <form action="" method="">
+                            <div class="wizard-header">
+                                <h3>
+                                    YENİ İLAN OLUŞTURUN <br>
+                                    <small>Oluşturulacak ilanın hakları yasalarca korunmaktadır.</small>
+                                </h3>
+                            </div>
+                            @*<ul>
+                                    <li><a href="#step1" data-toggle="tab">Step 1 </a></li>
+                                    <li><a href="#step2" data-toggle="tab">Step 2 </a></li>
+                                    <li><a href="#step3" data-toggle="tab">Step 3 </a></li>
+                                    <li><a href="#step4" data-toggle="tab">Finished </a></li>
+                                </ul>
+                                <div class="tab-content">*@
+
+
+                            @using (Html.BeginForm("Create", "Advert", FormMethod.Post, new { Id = ViewBag.SessionRandomId }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="tab-pane" id="step1">
+                                    <div class="row p-b-15  ">
+                                        <h4 class="info-text"> Aşağıdaki alanları doldurunuz <small>(* Zorunlu alanlar)</small> </h4>
+
+
+                                        @if (ViewBag.createfailure != null)
+                {
+                                            <div class="col-md-12">
+                                                <div class="col-md-3"></div>
+                                                <div class="col-md-6">
+                                                    <div>
+                                                        <div id="newadvertid" class="alert alert-warning col-md-12" style="display:block;margin-top:10px;padding:2px">  <label>&emsp;&emsp;İlanınız Oluşturulamadı. Lütfen Zorunlu alanları kontrol ederek tekrar deneyiniz !<br /></label></div>
+                                                        <input class="col-md-3" style="margin-top: -19px; margin-left: 200px" type="button" id="newadvertidkapat" value="Tamamdır." />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+
+
+
+                                        <div class="col-sm-4 col-sm-offset-1" style="height:340px">
+                                            @*<div class="picture-container">
+                                                   <div class="picture">
+                                                          <img src="~/AnasayfaContent/assets/img/default-property.jpg" class="picture-src" id="wizardPicturePreview" />
+                                                        <input type="file" id="wizard-picture" name="MainImage" >  <br /> <span>İlanın Profil Resmini <br /> Eklemek için tıklayın.</span>
+                                                    </div>
+
+                                                </div>*@
+
+                                            <div class="col-md-12 soloimage">
+                                                <div class="form-group">
+                                                    <label>Ana Resim Ekle <small>(*)</small></label>
+                                                    <input type="hidden" id="SessionRandomId" name="SessionRandomId" value="@ViewBag.SessionRandomId">
+                                                    <div class="col-md-11" style="padding-left:30px">
+                                                        <div class="form-group filesmain"> <input type="file" id="filesMain" name="filesMain" formmethod="post" action="/upload" /> </div>
+                                                    </div>
+                                                    <div id="alertmain" class="alert alert-success col-md-12" style="display:none;height:55px">  <label style="margin-left:22px;margin-bottom:45px">Resim Başarıyla Yüklendi.</label>    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>İlanın Başlığı <small>(*)</small></label>
+                                                @*<input name="Baslik" type="text" class="form-control" minlength=20 maxlength="60" placeholder="Güvenlikli Sitede 3+1 Çift Balkonlu..">*@
+                                                @Html.TextArea("Baslik", null, htmlAttributes: new { @class = "form-control", @style = "height:33px", @placeholder = "Güvenlikli Sitede 3+1 Çift Balkonlu.. (maks 100 karakter)", @maxlength = "100" })
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label>İlanın Fiyatı <small>(*)</small></label>
+                                                <div class="col-md-10">
+                                                    <input name="Fiyat" type="text" class="form-control" placeholder="120.500₺" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                                                    @*@Html.TextArea("Fiyat", null, htmlAttributes: new { @class = "form-control", @style = "height:35px", @placeholder = "120500₺", @maxlength = "7", @onkeypress = 'return event.charCode >= 48 && event.charCode <= 57' })*@
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label>İlanın Tipi <small>(*)</small></label>
+                                                <div class="col-md-10">
+                                                    @Html.DropDownList("PropertyTypeId", null, "Seçiniz..", htmlAttributes: new { @class = "form-control selectpicker" })
+                                                    @Html.ValidationMessageFor(model => model.PropertyTypeId, "", new { @class = "text-danger", style = "font-size:13px" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label>Satış Tipi <small>(*)</small></label>
+                                                <div class="col-md-10">
+                                                    @Html.DropDownList("SellingTypeId", null, "Seçiniz..", htmlAttributes: new { @class = "form-control selectpicker" })
+                                                    @Html.ValidationMessageFor(model => model.SellingTypeId, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-sm-6">
+                                                <label>Isıtma Tipi <small>(*)</small></label>
+                                                <div class="col-md-10">
+                                                    @Html.DropDownList("HeatingId", null, "Seçiniz..", htmlAttributes: new { @class = "form-control selectpicker" })
+                                                    @Html.ValidationMessageFor(model => model.HeatingId, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-sm-6">
+                                                <label>Şehir <small>(*)</small></label>
+                                                <div class="col-md-10">
+                                                    @Html.DropDownList("CityId", null, "il Seçiniz..", htmlAttributes: new { @class = "form-control selectpicker" })
+                                                    @Html.ValidationMessageFor(model => model.CityId, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label>Semt <small>(*)</small></label>
+                                                <div class="col-md-10">
+                                                    @Html.DropDownList("DistrictId", new SelectList(""), "ilçe Seçiniz..", htmlAttributes: new { @class = "form-control " })
+                                                    @Html.ValidationMessageFor(model => model.DistrictId, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            @*<div class="form-group col-sm-6">
+                                                    <label>ilçe <small>(*)</small></label>
+                                                    <select class="form-control form-group col-sm-6" id="DistrictttId" name="DistrictID">
+                                                        <option selected="selected">ilçe seçiniz</option>
+                                                    </select>
+                                                </div>*@
+                                        </div>
+                                        <div class="col-sm-5" style="padding-left:50px;padding-top:65px">
+                                            <div class="form-group">
+                                                <label>İlan Adresi <small>(*)</small></label>
+                                                @*<textarea name="Adres" class="form-control" style="height:150px"></textarea>*@
+                                                @Html.TextArea("Adres", null, htmlAttributes: new { @class = "form-control", @style = "height:150px" })
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+
+                                            <div class="form-group col-sm-4">
+                                                <div class="form-group">
+                                                    <label>Bina Yaşı <small>(*)</small></label>
+
+                                                    @{
+                                                        var binayasilist = new SelectList(new SelectListItem[] { new SelectListItem { Text = "1", Value = "1" },
+                                                                 new SelectListItem { Text = "2", Value = "2" }, new SelectListItem { Text = "3", Value = "3" },
+                                                                 new SelectListItem { Text = "4", Value = "4" }, new SelectListItem { Text = "5", Value = "5" },
+                                                                 new SelectListItem { Text = "6", Value = "6" }, new SelectListItem { Text = "7", Value = "7" },
+                                                                 new SelectListItem { Text = "8", Value = "8" }, new SelectListItem { Text = "9", Value = "9" },
+                                                                 new SelectListItem { Text = "10", Value = "10" }, new SelectListItem { Text = "11", Value = "11" },
+                                                                 new SelectListItem { Text = "12", Value = "12" }, new SelectListItem { Text = "13", Value = "13" },
+                                                                 new SelectListItem { Text = "14", Value = "14" }, new SelectListItem { Text = "15", Value = "15" },
+                                                                 new SelectListItem { Text = "16", Value = "16" }, new SelectListItem { Text = "17", Value = "17" },
+                                                                 new SelectListItem { Text = "18", Value = "18" }, new SelectListItem { Text = "19", Value = "19" },
+                                                                 new SelectListItem { Text = "20", Value = "20" }
+                                                            }, "Text", "Value");
+                                                    }
+                                                    @Html.DropDownList("Yas", binayasilist, "Seçiniz", htmlAttributes: new { @class = "form-control selectpicker" })
+
+                                                    @*Yukarıdaki kısmı tüm dropdownlistlere eklemek gerekir çünkü yanlış kayıt yapıldığında return de yazılmış hatalı bilgileri geri göndersin. *@
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-sm-4">
+                                                <div class="form-group">
+                                                    <label id="KatSayisiText">Kat Sayısı <small>(*)</small></label>
+                                                    @{
+                                                        var katsayisilist = new SelectList(new SelectListItem[] { new SelectListItem { Text = "1", Value = "1" },
+                                                                 new SelectListItem { Text = "2", Value = "2" }, new SelectListItem { Text = "3", Value = "3" },
+                                                                 new SelectListItem { Text = "4", Value = "4" }, new SelectListItem { Text = "5", Value = "5" },
+                                                                 new SelectListItem { Text = "6", Value = "6" }, new SelectListItem { Text = "7", Value = "7" },
+                                                                 new SelectListItem { Text = "8", Value = "8" }, new SelectListItem { Text = "9", Value = "9" },
+                                                                 new SelectListItem { Text = "10", Value = "10" }, new SelectListItem { Text = "11", Value = "11" },
+                                                                 new SelectListItem { Text = "12", Value = "12" }, new SelectListItem { Text = "13", Value = "13" },
+                                                                 new SelectListItem { Text = "14", Value = "14" }, new SelectListItem { Text = "15", Value = "15" },
+                                                                 new SelectListItem { Text = "16", Value = "16" }, new SelectListItem { Text = "17", Value = "17" },
+                                                                 new SelectListItem { Text = "18", Value = "18" }, new SelectListItem { Text = "19", Value = "19" },
+                                                                 new SelectListItem { Text = "20", Value = "20" }
+                                                            }, "Text", "Value");
+                                                    }
+                                                    @Html.DropDownList("KatSayisi", katsayisilist, "Seçiniz", htmlAttributes: new { @class = "form-control selectpicker" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-sm-4">
+                                                <div class="form-group">
+                                                    <label id="BulunduguKatText">Bulunduğu Kat <small>(*)</small></label>
+                                                    @Html.DropDownList("BuluduguKat", new SelectList(""), "Seçiniz", htmlAttributes: new { @class = "form-control" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-sm-4">
+                                                <div class="form-group">
+                                                    <label>Banyo Sayısı <small>(*)</small></label>
+                                                    <select id="BanyoSayisi" name="BanyoSayisi" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Seçiniz">
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-sm-4">
+                                                <div class="form-group">
+                                                    <label>Balkon Sayısı <small>(*)</small></label>
+                                                    <select id="BalkonSayisi" name="BalkonSayisi" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Seçiniz">
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-sm-4">
+                                                <div class="form-group">
+                                                    <label>Kaç Oda <small>(*)</small></label>
+                                                    <div class="col-md-12">
+                                                        @Html.DropDownList("RoomId", null, "Oda sayısı", htmlAttributes: new { @class = "form-control selectpicker" })
+                                                        @Html.ValidationMessageFor(model => model.RoomId, "", new { @class = "text-danger", style = "font-size:16px" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-sm-4" style="height:0px">
+                                                <div class="form-group">
+                                                    @*<label>Aidat <small>(*)</small></label>
+                                                        <input name="Aidat" type="text" class="form-control" placeholder="175" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>*@
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-sm-4">
+                                                <div class="form-group">
+                                                    <label>Aidat <small>(*)</small></label>
+                                                    <input name="Aidat" type="text" class="form-control" placeholder="175" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-sm-4">
+                                                <div class="form-group">
+                                                    <label>m <sup>2</sup> <small>(*)</small></label>
+                                                    <input name="Boyut" type="text" class="form-control" placeholder="120" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                                                </div>
+                                            </div>
+                                            @*<div class="form-group col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>m <sup>2</sup> <small>(*)</small></label>
+                                                        <input name="Boyut" type="text" class="form-control" placeholder="120" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>m <sup>2</sup> <small>(*)</small></label>
+                                                        <input name="Boyut" type="text" class="form-control" placeholder="120" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                                                    </div>
+                                                </div>*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--  End step 1 -->
+            <!--  Ara step Google Map -->
+                                                        <h4 class="info-text"> Konutunuzun Haritadaki Konumunu Arayınız ve İğneyi İstediğiniz Yere Sürükleyiniz.</h4>
+                                                        @*<div style="padding-bottom:20px" id="fordragging">
+                                                                <input id="pac-input" type="text" placeholder="Aramak İstediğiniz Yer ?"/>
+                                                            </div>
+                                                            <div id="modal-map2" class="col-md-10" style="height:500px;width:1100px;position:absolute;overflow:hidden;"></div>*@
+
+                                                        <div id="PartialMap" style="display:block;padding-left:20px">
+                                                            @{
+                                                                Html.RenderPartial("~/Views/Advert/Map.cshtml");
+                                                            }
+                                                        </div>
+           <!--  Ara step Google Map -->
+
+
+                                                            <!--  Start step 2 -->
+                                                                <div class="tab-pane" style="padding-top:550px" id="step2">
+
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <div class="col-sm-12">
+                                                                                <div class="form-group" style="min-height:140px;max-height:500px;">
+                                                                                    <label>İlanın Açıklaması :</label>
+                                                                                    @*<textarea name="Detaylar" class="form-control" style="height:145px"></textarea>*@
+                                                                                    @Html.TextArea("Detaylar", null, htmlAttributes: new { @class = "form-control", @style = "height:145px" })
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <h4 class="info-text" style="margin-top:410px"> Konutunuzun Özellikleri Neler ?</h4>
+
+                                                                        <div class="col-sm-12 padding-top-25"><label style="margin-left:30px">Evin Durumu</label> </div>
+                                                                        <div class="col-sm-12 padding-top-5">
+                                                                            <div class="col-sm-3">
+                                                                                <div class="form-group">
+                                                                                    <div class="checkbox">
+                                                                                        <label>
+                                                                                            <input name="EsyaDurumu" type="checkbox" value="true"> Eşyalı mı ?
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-3">
+                                                                                <div class="form-group">
+                                                                                    <div class="checkbox">
+                                                                                        <label>
+                                                                                            <input name="KullanimDurumu" type="checkbox" value="true"> Aktif Kullanan var mı ?
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div id="PartialQualification" style="display:block">
+                                                                            @{
+                                                                                Html.RenderPartial("~/Views/Shared/_PartialQualification.cshtml");
+                                                                            }
+                                                                        </div>
+
+                                                                        <br>
+                                                                    </div>
+                                                                </div>
+
+                                                            <!-- End step 2 -->
+                                                                                <div class="tab-pane" id="step3">
+                                                                                    <h4 class="info-text">İlanınızın resimlerini ekleyiniz </h4>
+                                                                                    <div class="row">
+                                                                                        <div style="padding-left:330px">
+                                                                                            <div id="alert" class="alert alert-success col-md-7" style="display:none;">  <label style="margin-left:22px">Resimler Başarıyla Yüklendi. İlanda görülmek üzere kaydedildi..</label>    </div>
+                                                                                        </div>
+                                                                                        <div class="col-sm-12">
+                                                                                            <div class="form-group">
+                                                                                                <label style="padding-left:25px">Resim Ekle <small>(*)</small></label>
+                                                                                                <input type="hidden" id="SessionRandomId" name="SessionRandomId" value="@ViewBag.SessionRandomId">
+                                                                                                <div class="col-md-12" style="padding-left:30px">
+                                                                                                    <div class="form-group"> <input type="file" id="files" name="files" formmethod="post" action="/upload" multiple /> </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                </div>
+                                                            <!--  End step 3 -->
+
+                                                                                    <div class="tab-pane" id="step4">
+                                                                                        <h4 class="info-text"> Koşulları kabul et ve ilanı <b style="color:coral">ücretsiz </b> yayınla.. </h4>
+                                                                                        <div class="row">
+                                                                                            <div class="col-sm-12">
+                                                                                                <div class="" style="padding-left:10px">
+                                                                                                    <p>
+                                                                                                        <label><strong>Gizlilik Koşulları : </strong></label>
+                                                                                                        Ücretli ilanlar KolayEmlak.com’un hediye ettiği Küçük Fotoğraf dopingiyle en yukarılarda yayınlanır.
+                                                                                                        İlan bedeli ödendikten sonra 24 saat içinde ilan girişi yapılmaması veya ilanın ilan verme kurallarına uygun olmaması durumunda ilan bedeli iade edilir.
+                                                                                                    </p>
+                                                                                                    @*<div class="checkbox" >
+                                                                                                            <label id="sartt" type="checkbox" class="acc"> <input class="acc" style="visibility:hidden" id="sartlar" type="checkbox" checked="checked" /> <strong>Şartları okudum ve kabul ediyorum.  </strong><a class="glyphicon glyphicon-ok col-md-1" style="display:none" id="dispp"></a> </label>
+                                                                                                        </div>
+                                                                                                        <button id="advertsubmitbutton" name="advertsubmitbutton"  class="btn btn-primary center-block"><i>bör bak</i> !</button>*@
+                                                                                                    <div class="checkbox">
+                                                                                                        <label class="acc col-md-9">
+                                                                                                            <input class="acc" type="checkbox" id="sart" checked="checked" disabled="disabled" /> <strong class="col-md-5">Şartları okudum ve kabul ediyorum.</strong> <span class="col-md-1" style="margin-left:-100px;margin-top:3px"><a class="glyphicon glyphicon-ok col-md-1" style="display:block" id="okgly"></a><a class="glyphicon glyphicon-remove col-md-1" style="display:none" id="falsegly"></a></span>
+                                                                                                        </label>
+                                                                                                    </div>
+
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                            <!--  End step 4 -->
+                                                                                    @*</div>*@
+
+                                                                                    <div class="row">
+                                                                                        @*<div class="col-xs-12">
+                                                                                                <input class="button btn largesearch-btn" value="Kaydet" type="submit"
+                                                                                                <button class="button btn largesearch-btn" style="padding-left:500px"  type="submit">Kaydet !</button>
+                                                                                            </div>*@
+                                                                                        <div class="col-md-12 center-block">
+                                                                                            <button id="advertsubmitbutton" name="advertsubmitbutton" type="submit" formmethod="post" class="btn btn-primary center-block">Kaydet !</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                }
+                        </form>
+                    </div>
+                    <!-- End submit form -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="PartialFooter" style="display:block" class="footer-area">
+        @{
+            Html.RenderPartial("~/Views/Shared/_PartialFooter.cshtml");
+        }
+    </div>
+    <!-- harita script i-->
+    @*<script>
+
+              var flatofis = { lat: 41.038, lng: 28.930 };
+              var map = new google.maps.Map(document.getElementById('modal-map2'), {
+                  zoom: 13,
+                  center: flatofis,
+                  mapTypeId: google.maps.MapTypeId.ROADMAP,
+                  zoomControl: true,
+
+                  //Zoom kontrolünün yerleri
+                  zoomControlOptions: {
+                      position: google.maps.ControlPosition.LEFT_BOTTOM
+                  },
+
+                  //scaleControl:true,
+                  streetViewControl: true,
+                  streetViewControlOptions: { position: google.maps.ControlPosition.LEFT_BOTTOM },
+
+                  mapTypeControlOptions:{position:google.maps.ControlPosition.RIGHT_CENTER},
+              });
+
+          </script>
+
+          <script>
+              var defaultBounds = new google.maps.LatLngBounds(
+        new google.maps.LatLng(-33.8902, 151.1759),
+        new google.maps.LatLng(-33.8474, 151.2631));
+
+              var input = document.getElementById('pac-input');
+
+              var searchBox = new google.maps.places.SearchBox(input, {
+                  bounds: defaultBounds
+              });
+              // Listen for the event fired when the user selects a prediction and retrieve
+              // more details for that place.
+              searchBox.addListener('places_changed', function () {
+                  var places = searchBox.getPlaces();
+
+                  if (places.length == 0) {
+                      return;
+                  }
+
+                  // Clear out the old markers.
+                  markers.forEach(function (marker) {
+                      marker.setMap(null);
+                  });
+                  markers = [];
+
+                  // For each place, get the icon, name and location.
+                  var bounds = new google.maps.LatLngBounds();
+                  places.forEach(function (place) {
+                      if (!place.geometry) {
+                          console.log("Returned place contains no geometry");
+                          return;
+                      }
+                      var icon = {
+                          url: place.icon,
+                          size: new google.maps.Size(71, 71),
+                          origin: new google.maps.Point(0, 0),
+                          anchor: new google.maps.Point(17, 34),
+                          scaledSize: new google.maps.Size(25, 25)
+                      };
+
+                      // Create a marker for each place.
+                      markers.push(new google.maps.Marker({
+                          map: map,
+                          icon: icon,
+                          title: place.name,
+                          position: place.geometry.location
+                      }));
+
+                      if (place.geometry.viewport) {
+                          // Only geocodes have viewport.
+                          bounds.union(place.geometry.viewport);
+                      } else {
+                          bounds.extend(place.geometry.location);
+                      }
+                  });
+                  map.fitBounds(bounds);
+              });
+          </script>*@
+
+
+    @*<script>
+            var input = document.getElementById('pac-input');
+            var button = document.getElementById('searchid');
+            var searchbox = new google.maps.places.SearchBox(input);
+
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(button);
+
+            $('#searchid').on("click", function () {
+                google.maps.event.trigger(input, 'focus')
+                google.maps.event.trigger(input, 'keydown', { keyCode: 13 });
+
+            });
+
+            var markers = [];
+
+            searchbox.addListener('places_changed', function () {
+
+                var places = searchbox.getPlaces();
+
+                if (places.length == 0) { return; }
+
+                markers.forEach(function (marker) {
+                    marker.setMap(null);
+                });
+                markers = [];
+
+                var bounds = new google.maps.LatLngBounds();
+                places.forEach(function (place) {
+
+                    if (!place.geometry) {
+                        console.log("returned place contains no geometry");
+                        return;
+                    }
+                    var icon = {
+                        url: place.icon,
+                        size: new google.maps.Size(71, 71),
+                        origin: new google.maps.Size(0, 0),
+                        anchor: new google.maps.Size(17, 34),
+                        scaledSize: new google.maps.Size(25, 25)
+                    };
+
+                    markers.push(new google.maps.Marker({
+                        map: map,
+                        icon: icon,
+                        title: place.name,
+                        position: place.geometry.location
+                    }));
+
+                    if (place.geometry.viewport) {
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                });
+                map.fitBounds(bounds);
+            });
+        </script>*@
+
+    @*bu kısımda butona tıklandığında zorunlu alanlar boş ise server a gitmeden return false desin.
+           <script>
+            $('#advertsubmitbutton').click(function ()
+            {
+                if()
+                {
+
+                }
+                alert("okokokoko"); return false;
+            });
+        </script>
+    *@
+
+
+    <script>
+        CKEDITOR.replace('Detaylar',{
+            language: 'tr', //CKEDITOR arayüz dili
+            uiColor: '#b3ffb3',// CKEDITOR arayüz rengi
+            height: 250,
+            removePlugins: 'elementspath',
+            colorButton_colors : '000000,FF0000,00FF00,0000FF',//yazı renk butonunun renkleri
+            colorButton_enableMore : false, //belirtilenler dışında renk  seçimini  engelleme
+            contentsLanguage : 'tr',//Editör içeriği oluşturmak için kullanılan yazı dilinin dil kodu.
+            toolbar : [
+                 //['Styles', 
+                 ['Format', 'Font', 'FontSize'],
+                  // '/',
+                 ['Bold', 'Italic', 'Underline'],
+                 //'StrikeThrough', '-', 'Undo', 'Redo', '-', 'Cut', 'Copy', 'Paste', 'Find', 'Replace', '-', 'Outdent', 'Indent', '-', 'Print'],
+                 // '/',
+                 //['NumberedList', 'BulletedList', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+                 // ['Image', 'Table', '-', 'Link', 'Flash', 
+                 ['Smiley', 'TextColor', 'BGColor'] //, 'Source']
+                       ],
+        });
+         
+    </script>
+
+    @*<script>
+            $('#advertsubmitbutton').on('click', function () {
+                var data = CKEDITOR.instances.Detaylar.getData();
+                $('#Detaylar').val(data);
+                $('#Detaylar').text(data);
+                alert(data);
+            });
+
+        </script>*@
+    @*<script>
+            var editor = CKEDITOR.replace('denemelerle');
+
+            // The "change" event is fired whenever a change is made in the editor.
+            editor.on('change', function (evt) {
+                // getData() returns CKEditor's HTML content.
+                $('#hiro').text(editor);
+            });
+
+        </script>*@
+    <script>
+
+        $("#files").fileinput(
+        {
+            language: 'tr',
+            uploadAsync: false,
+            dropZoneTitle: "Resimleri buraya yükleyiniz..",
+            browselabel: "Resim Seçiniz.",
+            uploadlabel: "Yükle",
+            uploadUrl: "@Url.Action("Resim","Advert")",
+            allowesFileExtension: ['jpg', 'jpeg', 'png', 'gif'],
+            maxFileCount: 10,
+            resizeImage: true,
+            maxImageWidht: 800,
+            maxImageHeight: 600,
+            minImageWidht: 200,
+            minImageHeight: 200,
+            resizePreference: 'widht',
+            resizeImageQuality: 0.7,
+            msgImageWidthSmall: '"{name}" Resminin genişliği en azından {size} px olmalı.',
+            msgImageHeightSmall: '"{name}" Resminin yüksekliği en azından {size} px olmalı.',
+            msgImageWidthLarge: '"{name}" Resminin genişliği en fazla {size} px olmalı.',
+            msgImageHeightLarge: '"{name}" Resminin yüksekliği en fazla {size} px olmalı.',
+            uploadExtraData: { Id: $("#SessionRandomId").val() }
+        });
+
+    </script>
+
+    <script>
+
+        $("#filesMain").fileinput(
+        {
+            language: 'tr',
+            uploadAsync: false,
+            dropZoneTitle: "Ana Resmi buraya yükleyiniz..",
+            browselabel: "Resim Seçiniz.",
+            uploadlabel: "Yükle",
+            uploadUrl: "@Url.Action("Resim","Advert")",
+            allowesFileExtension: ['jpg', 'jpeg', 'png', 'gif'],
+            maxFileCount: 1,
+            resizeImage: true,
+            maxImageWidht: 800,
+            maxImageHeight: 600,
+            minImageWidht: 200,
+            minImageHeight: 200,
+            resizePreference: 'widht',
+            resizeImageQuality: 0.7,
+            msgImageWidthSmall: '"{name}" Resminin genişliği en azından {size} px olmalı.',
+            msgImageHeightSmall: '"{name}" Resminin yüksekliği en azından {size} px olmalı.',
+            msgImageWidthLarge: '"{name}" Resminin genişliği en fazla {size} px olmalı.',
+            msgImageHeightLarge: '"{name}" Resminin yüksekliği en fazla {size} px olmalı.',
+            uploadExtraData: { Id: $("#SessionRandomId").val(), main: "true" }
+        });
+
+    </script>
+
+    <script>
+        $("#files").on("filebatchuploadcomplete", function () {
+            $("#alert").css({ "display": "block" });
+        });
+
+    </script>
+    <script>
+        $("#filesMain").on("filebatchuploadcomplete", function () {
+            $("#alertmain").css({ "display": "block" });
+        });
+
+    </script>
+    <script src="~/AnasayfaContent/assets/js/jquery-1.10.2.min.js"></script>
+
+    @*BU KISIM CLASS TA SELECTPICKER OLDUĞUNDA ÇALIŞMIYOR !*@
+    @*<script>
+            $(document).ready(function () {
+                $("#CityId").change(function () {
+                    $.get("/Advert/GetDistrict", { City: $("#CityId option:selected").val() }, function (data) {
+                        $("#DistrictttId").empty();
+                        $.each(data, function (index, row) {
+                            //var ilce = "<option value='" + row.ID + "'>" + row.Name + "</option>";
+                            $("#DistrictttId").append('<option value="' + row.ID + '">' + row.Name + '</option>');
+
+                            console.log(row);
+                            console.log(row.Name);
+                            //$('#District').append("<option value='" + row.Id + "'>" + row.Name +  "</option>")
+                        });
+                    });
+                });
+            });
+        </script>*@
+
+
+    <script>
+        $(document).ready(function () {
+            $("#CityId").change(function () {
+                $.get("/Advert/GetDistrict", { City: $("#CityId option:selected").val() }, function (data) {
+                    $("#DistrictId").empty();
+                    $.each(data, function (index, row) {
+                        //var ilce = "<option value='" + row.ID + "'>" + row.Name + "</option>";
+                        $("#DistrictId").append('<option value="' + row.ID + '">' + row.Name + '</option>');
+
+                        console.log(row);
+                        console.log(row.Name);
+                        //$('#District').append("<option value='" + row.Id + "'>" + row.Name +  "</option>")
+                    });
+                });
+            });
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            $("#KatSayisi").change(function () {
+                var katsayisi = $(this).val();
+                $("#BuluduguKat").empty();
+                if (katsayisi != null && katsayisi != "") {
+                    //alert(katsayisi);
+                    for (var i = 0; i <= katsayisi; i++) {
+                        if (i == 0) { $("#BuluduguKat").append('<option value="' + i + '">' + "Zemin Kat" + '</option>'); }
+                        else { $("#BuluduguKat").append('<option value="' + i + '">' + i + '</option>'); }
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+            $("#newadvertidkapat").click(function () {
+                $("#newadvertid").slideUp("slow");
+                $(this).fadeOut("slow");
+            });
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('.nawtop').click(function () {
+                $('.nawtop').removeClass("active");
+                $(this).addClass("active");
+            });
+        });
+    </script>
+    @* <script>
+            $(document).ready(function () {
+                $("#KatSayisi").change(function () {
+                    var katsayisi = $(this).val();
+                    var bulundugukat = $("#BulunduguKat").val();
+                    if (bulundugukat != null && bulundugukat != "" && katsayisi != null && katsayisi != "" && bulundugukat > katsayisi) {
+                        alert('Bulunduğunuz Kat ,Toplam Bina katından fazla olamaz!');
+                        $("#BulunduguKatText").css("color", "red");
+                    }
+                    else { $("#BulunduguKatText").css("color", "#777"); $("#KatSayisiText").css("color", "#777"); }
+                    if (bulundugukat <= katsayisi) { $("#KatSayisiText").css("color", "#777"); $("#BulunduguKatText").css("color", "#777"); }
+                });
+                $("#BulunduguKat").change(function () {
+                    var bulundugukat = $(this).val();
+                    var katsayisi = $("#KatSayisi").val();
+                    if (bulundugukat != null && bulundugukat != "" && katsayisi != null && katsayisi != "" && bulundugukat > katsayisi) {
+                        alert('Bulunduğunuz Kat ,Toplam Bina katından fazla olamaz!');
+                        $("#KatSayisiText").css("color", "red");
+                    }
+                    else { $("#KatSayisiText").css("color", "#777"); $("#BulunduguKatText").css("color", "#777"); }
+                    if (bulundugukat <= katsayisi) { $("#KatSayisiText").css("color", "#777"); $("#BulunduguKatText").css("color", "#777"); }
+                    alert('bulunma katı' + bulundugukat); alert('toplam kat' + katsayisi);
+                });
+            });
+        </script>  *@
+
+    @*<script>
+            $(document).ready(function () {
+                $("#BulunduguKat").change(function () {
+                    var bulundugukat = $(this).val();
+                    var katsayisi = $("#KatSayisi").val();
+                    if (bulundugukat != null && bulundugukat != "" && katsayisi != null && katsayisi != "" && bulundugukat > katsayisi) {
+                        //alert('Bulunduğunuz Kat ,Toplam Bina katından fazla olamaz!');
+                        $("#KatSayisiText").css("color", "red");
+                    }
+                    else { $("#KatSayisiText").css("color", "#777"); $("#BulunduguKatText").css("color", "#777"); }
+                    if (bulundugukat <= katsayisi) { $("#KatSayisiText").css("color", "#777"); $("#BulunduguKatText").css("color", "#777"); }
+                });
+            });
+        </script>*@
+
+    <script>
+        $(document).ready(function () {
+
+            var ckbox = $("#sartlar").is(':checked');
+
+            //$("#sartlar").on("click", function () {
+            //    if (ckbox==true) {
+            //        alert('You have Checked it');
+            //    } else {
+            //        alert('You Un-Checked it');
+            //    }
+            //});
+
+            //$('#advertsubmitbutton').click(function () {
+            //    //var x = $("#sartlar").is(':checked');
+            //    if ($("#sartlar").is(':checked') == true) { alert("YES"); }
+            //    else { alert("falseeee");}
+            //    console.log(x);
+            //});
+
+            //$('#sartt').click(function () {
+            //    //var x = $("#sartlar").is(':checked');
+            //    if ($(".acc").is(':checked') == true) { alert("YES"); $("#dispp").css({ "display": "block" }); }
+            //    else { alert("false"); $("#dispp").css({ "display": "none" }); }
+
+            //});
+
+            $(".acc").click(function () {
+                $('#advertsubmitbutton').slideToggle(1000);
+                $('#okgly').slideToggle(400);
+                $('#falsegly').slideToggle(400);
+            });
+
+            var atLeastOneIsChecked = $("#sartlar").val();
+            console.log(atLeastOneIsChecked);
+
+            console.log(ckbox);
+        });
+    </script>
+
+    @*<script>
+            //$(document).ready(function () {
+            $('#CityId').change(function () {
+                var city = $(this).val();
+
+                alert(city);
+                $.ajax({
+
+                    type: "Get",
+                    url: @Url.Action("GetDistrict", "Advert"),
+                    data:{City:city},
+                    success: function (data) {
+                        //var s='<option value="-1" seç >/option>';
+                        //for (var i = 0; i < result.lenth; i++) {
+                        //    s+='<option value="' + result[i].Id + '">' + result[i].Name + '</option>';
+                        //}
+                        //$("#District").html(s);
+                        $.each(data, function(index, item) {
+                            var ilce = "<option value='" + item.Id + "'>" + item.Name +  "</option>";
+                            $('#District').append(ilce);
+                        });
+
+                    }
+                })
+            });
+            //});
+        </script>*@
+
+
+    <script src="~/AnasayfaContent/assets/js/modernizr-2.6.2.min.js"></script>
+    <script src="~/AnasayfaContent/assets/js/jquery-1.10.2.min.js"></script>
+    <script src="~/AnasayfaContent/assets/js/bootstrap-select.min.js"></script>
+    <script src="~/AnasayfaContent/assets/js/bootstrap-hover-dropdown.js"></script>
+    <script src="~/AnasayfaContent/assets/js/easypiechart.min.js"></script>
+    <script src="~/AnasayfaContent/assets/js/jquery.easypiechart.min.js"></script>
+    <script src="~/AnasayfaContent/assets/js/owl.carousel.min.js"></script>
+    <script src="~/AnasayfaContent/assets/js/wow.js"></script>
+    <script src="~/AnasayfaContent/assets/js/icheck.min.js"></script>
+    <script src="~/AnasayfaContent/assets/js/price-range.js"></script>
+    <script src="~/AnasayfaContent/assets/js/main.js"></script>
+    @*<script src="~/AnasayfaContent/assets/js/wizard.js"></script>*@
+    <script src="~/AnasayfaContent/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" type="text/javascript"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+﻿@model IEnumerable<EmlakProjesi.Models.Advert>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/fileinput.min.css" rel="stylesheet" />
+
+<h2>Anasayfa</h2>
+
+<p>
+    @null
+</p>
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+        <table class="table table-striped table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.MainImage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Baslik)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Boyut)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.kacoda.Ad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fiyat)
+                </th>
+                <th> 
+                    <span style="font-size:small" >@Html.DisplayNameFor(model => model.StartDate)</span>
+                    @*@Html.DisplayNameFor(model => model.StartDate)*@
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmlakTipi.Ad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SatisTipi.Ad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.il.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ilce.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ilantipi.Premium)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MainImage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Baslik)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Boyut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.kacoda.Ad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fiyat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmlakTipi.Ad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SatisTipi.Ad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.il.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ilce.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ilantipi.Premium)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+                </td>
+            </tr>
+            }
+
+        </table>
+
+    </div>
+</div>
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+<script src="~/scripts/bootstrap.min.js"></script>
+<script src="~/scripts/fileinput.min.js"></script>
+

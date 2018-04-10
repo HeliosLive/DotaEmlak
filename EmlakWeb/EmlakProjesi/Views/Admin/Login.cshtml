@@ -1,0 +1,93 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+    <title>Dota Admin | Giriş</title>
+
+
+    <link href="~/AdminContent/resources/css/invalid.css" rel="stylesheet" />
+    <link href="~/AdminContent/resources/css/reset.css" rel="stylesheet" />
+    <link href="~/AdminContent/resources/css/style.css" rel="stylesheet" />
+
+    <script src="~/AdminContent/resources/scripts/simpla.jquery.configuration.js"></script>
+    <script src="~/AdminContent/resources/scripts/jquery.wysiwyg.js"></script>
+    <script src="~/AdminContent/resources/scripts/jquery-1.3.2.min.js"></script>
+    <script src="~/AdminContent/resources/scripts/facebox.js"></script>
+
+</head>
+
+<body id="login">
+
+    @using (Html.BeginForm("Login", "Admin", FormMethod.Post, new { login = "giris" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div id="login-wrapper" class="png_bg">
+            <div id="login-top">
+
+                <h1>Dota Admin</h1>
+                <!-- Logo (221px width) -->
+                <img id="logo" src="~/AnasayfaContent/assets/img/dota_emlak_admin.png" alt="Simpla Admin logo" />
+            </div> <!-- End #logn-top -->
+
+            <div id="login-content">
+
+                @*<form action="index.html">*@
+                @if (ViewBag.LoginInfo == 1)
+                {
+                    <div class="notification information png_bg">
+                        <div>
+                            Bu Giriş Admin Sayfasına geçişi sağlar !
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.LoginInfo == 2)
+                {
+                    <div class="notification information png_bg">
+                        <div>
+                            Kullanıcı Adı ya da Şifre Hatalı !
+                        </div>
+                    </div>
+                }
+
+                <p>
+                    <label style="padding-top:4px">Kullanıcı Adı</label>
+                    <input class="text-input" type="text" name="username" />
+                </p>
+                <div class="clear"></div>
+                <p>
+                    <label>Şifre</label>
+                    <input class="text-input" type="password" name="password" />
+                </p>
+                <div class="clear"></div>
+                @*<p id="remember-password">
+                        <input type="checkbox" />Remember me
+                    </p>*@
+                <div class="clear"></div>
+                <p style="float:left">
+                    <input class="button" style="width:88px" onclick="location.href='@Url.Action("Index", "Home")'"  value="Siteye Geri Dön" />
+                </p>
+                <p>
+                    <input class="button" type="submit" value="Giriş" />
+                </p>
+
+
+                @*</form>*@
+            </div> <!-- End #login-content -->
+
+        </div> <!-- End #login-wrapper -->
+    }
+</body>
+
+</html>

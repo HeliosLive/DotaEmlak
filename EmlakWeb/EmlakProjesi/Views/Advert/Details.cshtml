@@ -1,0 +1,546 @@
+﻿@model EmlakProjesi.Models.Advert
+
+@{
+    ViewBag.Title = "Details";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+   
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>Dota Emlak</title>
+    <meta name="description" content="GARO is a real-estate template">
+    <meta name="author" content="Kimarotec">
+    <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="~/AnasayfaContent/assets/img/homeicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/normalize.css">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/fontello.css">
+    <link href="~/AnasayfaContent/assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
+    <link href="~/AnasayfaContent/assets/fonts/icon-7-stroke/css/helper.css" rel="stylesheet">
+    <link href="~/AnasayfaContent/assets/css/animate.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/bootstrap-select.min.css">
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <link href="~/Content/rangeslider.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-slider.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/AnasayfaContent/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/icheck.min_all.css">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/price-range.css">
+    <link href="~/AnasayfaContent/assets/css/lightslider.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/owl.theme.css">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/owl.transitions.css">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/style.css">
+    <link rel="stylesheet" href="~/AnasayfaContent/assets/css/responsive.css">
+    <link href="~/AnasayfaContent/assets/css/wizard.css" rel="stylesheet" />
+    <script src="~/AnasayfaContent/assets/js/jquery-1.10.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" type="text/javascript"></script>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js" type="text/javascript"></script>
+    <script src="~/scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/scripts/rangeslider.js"></script>
+    <script src="~/scripts/bootstrap-slider.js"></script>
+    <style>
+        .ozellikler {
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <!-- Body content -->
+    <div id="PartialHeader" style="display:block">
+        @{
+            Html.RenderPartial("~/Views/Shared/_PartialHeader.cshtml");
+        }
+    </div>
+    <!-- End of nav bar -->
+    <div class="page-head">
+        <div class="container">
+            <div class="row">
+                <div class="page-head-content">
+                    <h1 class="page-title">@Model.Baslik</h1> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End page header -->
+    <!-- property area -->
+    <div class="content-area single-property" style="background-color: #FCFCFC;">
+        &nbsp;
+        <div class="container">
+            <div class="clearfix padding-top-40">
+                <div class="col-md-8 single-property-content prp-style-2">
+                    <div class="">
+                        <div class="row">
+                            <div class="light-slide-item">
+                                <div class="clearfix">
+                                    <div class="favorite-and-print">
+                                        <a class="add-to-fav" href="#login-modal" data-toggle="modal">
+                                            <i class="fa fa-star-o"></i>
+                                        </a>
+                                        <a class="printer-icon " href="javascript:window.print()">
+                                            <i class="fa fa-print"></i>
+                                        </a>
+                                    </div>
+                                    <ul id="image-gallery" class="gallery list-unstyled cS-hidden" data-nav="thumbs">
+
+                                        @foreach (var item in ViewData["Resimler"] as IEnumerable<EmlakProjesi.Models.Image>)
+                                        {
+                                            <li data-thumb="/image/@item.ImageId">
+                                                <img src="~/image/@item.ImageId" />
+                                            </li>
+                                        }
+                                        @*<li data-thumb="/AnasayfaContent/assets/img/dota2.png" >
+                                                <img src="~/AnasayfaContent/assets/img/dota2.png" />
+                                            </li>*@
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-property-wrapper">
+                            <div class="section">
+                                <h4 class="s-property-title">Açıklama</h4>
+                                <div class="s-property-content" style="width:400px">
+                                    @*<p>@Model.Detaylar </p>*@
+                                    @Html.Raw(Model.Detaylar)
+                                </div>
+                            </div>
+                            <!-- End description area  -->
+                            <div class="section additional-details">
+                                <h4 class="s-property-title">Emlak Detayları</h4>
+                                <ul class="additional-details-list clearfix">
+                                    <li>
+                                        <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Aidat</span>
+                                        @if (Model.Aidat != 0 && Model.Aidat.ToString() != "")
+                                        {
+                                            <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">@Model.Aidat</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">YOK</span>
+                                        }
+
+                                    </li>
+                                    <li>
+                                        <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Toplam Kat Sayısı</span>
+                                        <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">@Model.KatSayisi</span>
+                                    </li>
+                                    <li>
+                                        <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Bulunduğu Kat</span>
+                                        <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">@Model.BuluduguKat</span>
+                                    </li>
+                                    <li>
+                                        <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Balkon Sayısı</span>
+                                        <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">@Model.BalkonSayisi</span>
+                                    </li>
+                                    <li>
+                                        <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Bina Yaşı</span>
+                                        <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">@Model.Yas</span>
+                                    </li>
+                                    <li>
+                                        <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Adres</span>
+                                        <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">@Model.Adres</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="DetailsMap" style="display:block" >
+                                @{
+                                    Html.RenderPartial("~/Views/Advert/DetailAdvertMap.cshtml");
+                                }
+                            </div>
+                            <!-- End additional-details area  -->
+
+                                        @{
+                                            Html.RenderPartial("~/Views/Shared/_PartialDetailsQualific.cshtml");
+                                        }
+                             
+                            <!-- End features area  -->
+                            @*<div class="section property-video">
+                                    <h4 class="s-property-title">Property Video</h4>
+                                    <div class="video-thumb">
+                                        <a class="video-popup" href="yout" title="Virtual Tour">
+                                            @* bu video için src <img src="assets/img/property-video.jpg" class="img-responsive wp-post-image" alt="Exterior">
+                                            <iframe src="http://www.Google.com" width="500" height="500">  </iframe>
+                                        </a>
+                                    </div>
+                                </div>*@
+                            <!-- End video area  -->
+                            @*<div class="section property-share">
+                                    <h4 class="s-property-title">Share width your friends </h4>
+                                    <div class="roperty-social">
+                                        <ul>
+                                            <li><a title="Share this on dribbble " href="#"><img src="assets/img/social_big/dribbble_grey.png"></a></li>
+                                            <li><a title="Share this on facebok " href="#"><img src="assets/img/social_big/facebook_grey.png"></a></li>
+                                            <li><a title="Share this on delicious " href="#"><img src="assets/img/social_big/delicious_grey.png"></a></li>
+                                            <li><a title="Share this on tumblr " href="#"><img src="assets/img/social_big/tumblr_grey.png"></a></li>
+                                            <li><a title="Share this on digg " href="#"><img src="assets/img/social_big/digg_grey.png"></a></li>
+                                            <li><a title="Share this on twitter " href="#"><img src="assets/img/social_big/twitter_grey.png"></a></li>
+                                            <li><a title="Share this on linkedin " href="#"><img src="assets/img/social_big/linkedin_grey.png"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>*@
+                            <!-- End video area  -->
+                        </div>
+                    </div>
+                    <div class="similar-post-section padding-top-50">
+                        <h4 class="s-property-title" >Son Yüklenen İlanlar</h4>
+                        <div id="prop-smlr-slide_0">
+
+                            @foreach (var item in ViewData["detayoneri"] as IEnumerable<EmlakProjesi.Models.Advert>)
+                            {
+                                <div class="box-two proerty-item">
+                                    <div class="item-thumb">
+                                        <a onclick="location.href='@Url.Action("Details", "Advert", new { id=item.ID})'"><img src="~/image/@item.MainImage"></a>
+                                    </div>
+                                    <div class="item-entry overflow">
+                                        <h5><a onclick="location.href='@Url.Action("Details", "Advert", new { id=item.ID})'">@item.Baslik</a></h5>
+                                        <div class="dot-hr"></div>
+                                        <span class="pull-left"><b> Alan :</b> @item.Boyut m<sup>2</sup> </span>
+                                        <span class="proerty-price pull-right"> @item.Fiyat <span class="fa fa-turkish-lira"></span> </span>
+                                    </div>
+                                </div>
+                            }
+
+
+                        </div>
+                    </div> 
+                    <div style="float:right">Bu ilan @Model.ViewCounter kez görüntülenmiştir.</div>
+                </div>
+                <div class="col-md-4 p0">
+                    <aside class="sidebar sidebar-property blog-asside-right property-style2">
+                        <div class="dealer-widget">
+                            <div class="dealer-content">
+                                <div class="inner-wrapper">
+                                    <div class="single-property-header">
+                                        <h1 class="property-title">@Model.Baslik</h1>
+                                        <span class="property-price">@Model.Fiyat <span class="fa fa-turkish-lira"></span></span>
+                                    </div>
+                                    <div class="property-meta entry-meta clearfix ">
+                                        <div class="col-xs-4 col-sm-4 col-md-4 p-b-15">
+                                            <span class="property-info-icon ">
+                                                <img src="~/AnasayfaContent/assets/img/icon/sale-orange.png" title="Satış Tipi"/>
+                                            </span>
+                                            <span class="property-info-entry">
+                                                @*<span class="property-info-label">Satış Tipi</span>*@
+                                                <span class="property-info-value"> <br /> @Model.SatisTipi.Ad</span>
+                                            </span>
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4 col-md-4 p-b-15">
+                                            <span class="property-info icon-area">
+                                                <img src="~/AnasayfaContent/assets/img/icon/room-orange.png" title="Boyut"/>
+                                            </span>
+                                            <span class="property-info-entry">
+                                                @*<span class="property-info-label">Alan</span>*@
+                                                <span class="property-info-value"><br />  @Model.Boyut<b class="property-info-unit">m<sup>2</sup></b></span>
+                                            </span>
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4 col-md-4 p-b-15">
+                                            <span class="property-info-icon icon-bed">
+                                                <img src="~/AnasayfaContent/assets/img/icon/bed-orange.png" title="Kaç Oda?"/>
+                                            </span>
+                                            <span class="property-info-entry">
+                                                @*<span class="property-info-label">Kaç Oda ?</span>*@
+                                                <span class="property-info-value"> <br /> @Model.kacoda.Ad</span>
+                                            </span>
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4 col-md-4 p-b-15" style="height:71px">
+                                            <span class="property-info-icon icon-bath">
+                                                @*<img src="~/AnasayfaContent/assets/img/icon/yellow-home-md.png" style="width:35px;height:20px" />*@
+                                                <img src="~/AnasayfaContent/assets/img/icon/house.png" title="Emlak Tipi"/>
+                                            </span>
+                                            <span class="property-info-entry">
+                                                @*<span class="property-info-label">Emlak Tipi</span>*@
+                                                <span class="property-info-value">  <br /> @Model.EmlakTipi.Ad</span>
+                                            </span>
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4 col-md-4 p-b-15" style="height:71px">
+                                            <span class="property-info-icon icon-bath">
+                                                @*<img src="~/AnasayfaContent/assets/img/icon/heating.png" style="width:35px;height:20px" />*@
+                                                <img src="~/AnasayfaContent/assets/img/icon/heater.png" title="Isıtma Tipi"/>
+                                            </span>
+                                            <span class="property-info-entry">
+                                                @*<span class="property-info-label">Isıtma Tipi</span>*@
+                                                <span class="property-info-value"> <br /> @Model.isitmatipi.Ad</span>
+                                            </span>
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4 col-md-4 p-b-15">
+                                            <span class="property-info-icon icon-garage">
+                                                <img src="~/AnasayfaContent/assets/img/icon/shawer-orange.png" title="Banyo Sayısı"/>
+                                            </span>
+                                            <span class="property-info-entry">
+                                                @*<span class="property-info-label">Banyo</span>*@
+                                                <span class="property-info-value" style="padding-left:12px"> <br /> @Model.BanyoSayisi</span>
+                                            </span>
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4 col-md-4 p-b-15">
+                                            <span class="property-info-icon icon-garage">
+                                                @*<img src="~/AnasayfaContent/assets/img/icon/cityicon.jpg" style="width:35px;height:20px" />*@ 
+                                                <img src="~/AnasayfaContent/assets/img/icon/cityscape (2).png"  title="İl"/>
+                                            </span>
+                                            <span class="property-info-entry">
+                                                @*<span class="property-info-label">İl</span>*@
+                                                <span class="property-info-value"> <br /> @Model.il.Name</span>
+                                            </span>
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4 col-md-4 p-b-15">
+                                            <span class="property-info-icon icon-garage">
+                                                @*<img src="~/AnasayfaContent/assets/img/icon/districticon.jpg" style="width:35px;height:20px" />*@
+                                                <img src="~/AnasayfaContent/assets/img/icon/skyline.png" title="İlçe"/>
+                                            </span>
+                                            <span class="property-info-entry">
+                                                @*<span class="property-info-label">İlçe</span>*@
+                                                <span class="property-info-value"> <br /> @Model.ilce.Name</span>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                    <div class="dealer-section-space">
+                                        <span>Satıcının Bİlgİlerİ</span>
+                                    </div>
+                                    <div class="clear">
+                                        <div class="col-xs-4 col-sm-4 dealer-face">
+                                            <a href="">
+                                                <img src="~/AnasayfaContent/assets/img/client-face1.png" class="img-circle">
+                                            </a>
+                                        </div>
+                                        <div class="col-xs-8 col-sm-8 ">
+                                            <h3 class="dealer-name">
+                                                <a href="">Ahmet Aydın</a><br />
+                                                <span>Jr. Software Developer</span>
+                                            </h3>
+                                            <div class="dealer-social-media">
+                                                <a class="twitter" target="_blank" href="https://twitter.com/Ahmettt_Aydin">
+                                                    <i class="fa fa-twitter"></i>
+                                                </a>
+                                                <a class="facebook" target="_blank" href="https://www.facebook.com/ahmtttaydn">
+                                                    <i class="fa fa-facebook"></i>
+                                                </a>
+                                                <a class="gplus" target="_blank" href="">
+                                                    <i class="fa fa-google-plus"></i>
+                                                </a>
+                                                <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/ahmet-ayd%C4%B1n-978393132/">
+                                                    <i class="fa fa-linkedin"></i>
+                                                </a>
+                                                <a class="instagram" target="_blank" href="https://www.instagram.com/ahmetttaydin/">
+                                                    <i class="fa fa-instagram"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    @*hover inline için bilgiler
+                                        <a href="test.html" style="{color: blue; background: white}
+                                                    :visited {color: green}
+                                                    :hover {background: yellow}
+                                                    :visited:hover {color: purple}">Test</a>*@
+
+
+                                    <div class="clear">
+                                        <ul class="dealer-contacts">
+                                            <li><a target="_blank" class="pe-7s-map-marker strong" href="https://goo.gl/maps/BPR89PazxZL2" style="font-size:14px;color:black"> <span style="color:#FFF;" onmouseover="this.style.color = 'orange';" onmouseout="this.style.color = '#FFF';">&emsp;K<span style="text-transform:lowercase">işisel</span> A<span style="text-transform:lowercase">dres</span></span></a>  </li>
+                                            <li><i class="pe-7s-mail strong"> </i> ahmet.a@bdh.com.tr</li>
+                                            <li><i class="pe-7s-call strong"> </i> +90 536 860 39 27</li>
+                                        </ul>
+                                        <p>Yeterince azimli olmazsan bir şeyleri başarmak için, Yoksa sadece kendini yıpratırsın..</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default sidebar-menu wow fadeInRight animated">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">R<span style="text-transform:lowercase">eklam</span>  P<span style="text-transform:lowercase">aneli</span> </h3>
+                            </div>
+                            <div class="panel-body recent-property-widget">
+                                <img src="http://via.placeholder.com/350x350">
+                            </div>
+                        </div>
+                        <div class="panel panel-default sidebar-menu wow fadeInRight animated">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Akıllı Arama</h3>
+                            </div>
+                            <div class="panel-body search-widget">
+                                <form action="" class="form-inline">
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <input type="text" class="form-control" placeholder="Anahtar Kelime">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="form-group col-xs-6">
+                                                <label>Şehir</label>
+                                                <select id="_PCityId" name="_PCityId" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="il Seçiniz">
+                                                    @*<option>New york, CA</option><option>Paris</option><option>Casablanca</option><option>Tokyo</option><option>Marraekch</option><option>kyoto , shibua</option>*@
+                                                    @foreach (var item in ViewData["_PCityId"] as List<EmlakProjesi.Models.City>)
+                                                    {
+                                                        <option value="@item.ID"> @item.Name </option>
+                                                    }
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-xs-6">
+                                                <label>Semt</label>
+                                                @Html.DropDownList("DistrictId", new SelectList(""), "ilçe Seçiniz..", htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.DistrictId, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                                                      
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <input class="button btn largesearch-btn" id="minisearch" value="Ara" type="submit">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer area-->
+    <div id="PartialHeader" style="display:block">
+        @{
+            Html.RenderPartial("~/Views/Shared/_PartialFooter.cshtml");
+        }
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="~/AdverImageInputContent/js/plugins/sortable.js" type="text/javascript"></script>
+    <script src="~/AdverImageInputContent/js/fileinput.js" type="text/javascript"></script>
+    <script src="~/AdverImageInputContent/js/locales/fr.js" type="text/javascript"></script>
+    <script src="~/AdverImageInputContent/js/locales/es.js" type="text/javascript"></script>
+    <script src="~/AdverImageInputContent/themes/explorer-fa/theme.js" type="text/javascript"></script>
+    <script src="~/AdverImageInputContent/themes/fa/theme.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" type="text/javascript"></script>
+    <script src="~/AnasayfaContent/assets/js/modernizr-2.6.2.min.js"></script>
+    <script src="~/AnasayfaContent/assets/js/jquery-1.10.2.min.js"></script>
+    <script src="~/AnasayfaContent/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/AnasayfaContent/assets/js/bootstrap-select.min.js"></script>
+    <script src="~/AnasayfaContent/assets/js/bootstrap-hover-dropdown.js"></script>
+    <script src="~/AnasayfaContent/assets/js/easypiechart.min.js"></script>
+    <script src="~/AnasayfaContent/assets/js/jquery.easypiechart.min.js"></script>
+    <script src="~/AnasayfaContent/assets/js/owl.carousel.min.js"></script>
+    <script src="~/AnasayfaContent/assets/js/wow.js"></script>
+    <script src="~/AnasayfaContent/assets/js/icheck.min.js"></script>
+    <script src="~/AnasayfaContent/assets/js/lightslider.min.js"></script>
+    <script src="~/AnasayfaContent/assets/js/price-range.js"></script>
+    <script src="~/AnasayfaContent/assets/js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('#image-gallery').lightSlider({
+                gallery: true,
+                item: 1,
+                thumbItem: 9,
+                slideMargin: 0,
+                speed: 500,
+                auto: true,
+                loop: true,
+                onSliderLoad: function () {
+                    $('#image-gallery').removeClass('cS-hidden');
+                }
+            });
+        });
+    </script>
+    <script>
+        $('#lightSlider').lightSlider({
+            gallery: true,
+            item: 1,
+            loop: true,
+            slideMargin: 0,
+            thumbItem: 9
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#_PCityId").change(function () {
+                //var citi = $("#_PCityId").val();
+                $.get("/Advert/GetDistrict", { City: $("#_PCityId option:selected").val() }, function (data) {
+                    $("#DistrictId").empty();
+                    $.each(data, function (index, row) {
+                        $("#DistrictId").append('<option value="' + row.ID + '">' + row.Name + '</option>');
+                        //$("#_PDistrictId").append("<option value='" + row.ID + "'>" + row.Name + "</option>");
+                        console.log(row);
+                        console.log(row.Name);
+                    });
+                });
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#multiRoomDropDown").change(function () {
+                //alert("sthwrong");
+                var selectedValues = $('#multiRoomDropDown').val();
+                alert(selectedValues);
+            });
+        });
+    </script>
+
+    <script>
+        $('input[type="range"]').rangeslider();
+        $('input[type="range"]').rangeslider('destroy');
+        $('input[type="range"]').rangeslider('update', true);
+
+        $('input[type="range"]').rangeslider({
+            polyfill: true,
+            rangeClass: 'rangeslider',
+            disabledClass: 'rangeslider--disabled',
+            horizontalClass: 'rangeslider--horizontal',
+            verticalClass: 'rangeslider--vertical',
+            fillClass: 'rangeslider__fill',
+            handleClass: 'rangeslider__handle',
+            onInit: function () { },
+            onSlide: function (position, value) { },
+            onSlideEnd: function (position, value) { }
+        });
+    </script>
+      
+    <script>
+        $(document).ready(function () {
+            $("#minisearch").click(function () {
+                 
+                $.post("/Home/Index", {
+                    title: $("#title").val(),
+                    city: $("#_PCityId").val(),
+                    district: $("#DistrictId").val(),
+                    room:room,
+                    selling: selling,
+                    heating: heating,
+                    maxfiyat: $("#ex6").val(),
+                    minfiyat: $("#ex7").val(),
+                    maxmetre: $("#ex8").val(),
+                    minmetre: $("#ex9").val()
+                }, function (data) {
+                    //do whatever with the response
+
+                });
+                 
+            });
+        });
+    </script>
+</body>
+</html>
